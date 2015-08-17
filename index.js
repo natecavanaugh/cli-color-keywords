@@ -2,11 +2,16 @@ var _ = require('lodash');
 var chalk = require('chalk');
 
 var color = function(options) {
+	options = options || {};
+
+	/* istanbul ignore next */
+	if (process.argv.slice(2).indexOf('--display-raw') > -1) {
+		options.enabled = false;
+	}
+
 	var ctx = new chalk.constructor(options);
 
 	_.defaults(ctx, chalk);
-
-	console.log(ctx.bgRed);
 
 	ctx.bgError = ctx.bgRed;
 	ctx.bgHelp = ctx.bgCyan;

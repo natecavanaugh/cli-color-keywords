@@ -14,8 +14,6 @@ it(
 	function() {
 		var ctx = colors();
 
-		console.log(ctx);
-
 		['bgError', 'bgHelp', 'bgWarn', 'error', 'help', 'subtle', 'warn', 'ignored'].forEach(
 			function(item, index) {
 				assert.isTrue(ctx.hasOwnProperty(item), 'Object should have a method called ' + item);
